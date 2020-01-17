@@ -9,7 +9,9 @@ const app = express();
 app.use(express.json());
 
 config.pino.init(app);
-config.mongoose.init();
+(async () => {
+  await config.mongoose.init();
+})();
 
 //TODO: add from env
 const port = 3000;

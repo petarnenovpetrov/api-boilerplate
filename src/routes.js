@@ -10,14 +10,14 @@ module.exports = (ns => {
     });
 
     //Product resource
-    app.get('/product', async (req, res, next) => {
+    app.get('/api/product', async (req, res, next) => {
       await service
         .getProducts(req, res)
         .then(data => res.json(data))
         .catch(err => next(err));
     });
 
-    app.post('/product', async (req, res, next) => {
+    app.post('/api/product', async (req, res, next) => {
       await service
         .setProduct(req, res)
         .then(data => res.json(data))
