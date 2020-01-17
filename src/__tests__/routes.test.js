@@ -32,14 +32,14 @@ describe('Post Endpoints', () => {
     expect(res.statusCode).toEqual(200);
     //expect(res.body).toHaveProperty('post');
   });
-    it('should create a new post', async () => {
-      const res = await request('http://localhost:3000')
-        .post('/api/product')
-        .set('X-UID', '1235')
-        .send({
-          name: 'Gillette',
-        });
-      expect(res.statusCode).toEqual(500);
-      //expect(res.body).toHaveProperty('post');
-    });
+  it('should create a new post', async () => {
+    const res = await request('http://localhost:3000')
+      .post('/api/product')
+      .set('X-UID', '1235')
+      .send({
+        name: 'Gillette',
+      });
+    expect(res.statusCode).toEqual(500);
+    //expect(res.body).toHaveProperty('post');
+  });
 });
