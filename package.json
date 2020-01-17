@@ -7,16 +7,20 @@
     "express": "^4.17.1",
     "express-pino-logger": "^4.0.0",
     "mongoose": "^5.8.7",
-    "pino-pretty": "^3.5.0"
+    "pino-pretty": "^3.5.0",
+    "prettier": "^1.19.1"
   },
   "devDependencies": {
     "jest": "^24.9.0",
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "node index.js",
-    "devStart": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jestconfig.json",
+    "start": "node src/index.js",
+    "devStart": "nodemon src/index.js",
+    "format": "prettier --write \"src/**/*.js\"",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [],
   "author": "",
