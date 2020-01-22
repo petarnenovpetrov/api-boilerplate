@@ -93,45 +93,44 @@ describe('Product Endpoints', () => {
     const res = await request(app)
       .put('/api/product/1')
       .set('X-UID', '1234')
-      .send({price:33.99,quantyty:44})
+      .send({ price: 33.99, quantyty: 44 });
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("price");
+    expect(res.body).toHaveProperty('price');
     expect(res.body.price).toBe(33.99);
-    expect(res.body).toHaveProperty("quantyty");
-    expect(res.body.quantyty).toBe(44)
+    expect(res.body).toHaveProperty('quantyty');
+    expect(res.body.quantyty).toBe(44);
   });
-   it('should update price to product by Id', async () => {
+  it('should update price to product by Id', async () => {
     const res = await request(app)
       .put('/api/product/1')
       .set('X-UID', '1234')
-      .send({price:44.99})
+      .send({ price: 44.99 });
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("price");
-    expect(res.body.price).toBe(44.99);   
+    expect(res.body).toHaveProperty('price');
+    expect(res.body.price).toBe(44.99);
   });
-   it('should update quantyty to product by Id', async () => {
+  it('should update quantyty to product by Id', async () => {
     const res = await request(app)
       .put('/api/product/1')
       .set('X-UID', '1234')
-      .send({quantyty:20})
+      .send({ quantyty: 20 });
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("quantyty");
-    expect(res.body.quantyty).toBe(20);   
+    expect(res.body).toHaveProperty('quantyty');
+    expect(res.body.quantyty).toBe(20);
   });
-    it('should not update quantyty to product by Id', async () => {
+  it('should not update quantyty to product by Id', async () => {
     const res = await request(app)
       .put('/api/product/1')
       .set('X-UID', '1234')
-      .send({quantyty:20.59})
-    expect(res.statusCode).toEqual(500);     
+      .send({ quantyty: 20.59 });
+    expect(res.statusCode).toEqual(500);
   });
   it('should delete product by Id', async () => {
     const res = await request(app)
       .delete('/api/product/1')
       .set('X-UID', '1234');
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("id");
-    expect(res.body.id).toBe("1");
+    expect(res.body).toHaveProperty('id');
+    expect(res.body.id).toBe('1');
   });
-
 });

@@ -1,7 +1,7 @@
 //unit tests models.js
 const mongoose = require('mongoose');
 const ProductModel = require('../models').product;
-const ProductData = { id: "1",name: 'Gilette', price: 10.99, quantyty: 12 };
+const ProductData = { id: '1', name: 'Gilette', price: 10.99, quantyty: 12 };
 
 describe('Product Model Test', () => {
   // It's just so easy to connect to the MongoDB Memory Server
@@ -35,7 +35,7 @@ describe('Product Model Test', () => {
 
   it('should insert product successfully, but the field does not defined in schema should be undefined', async () => {
     const validProduct = new ProductModel({
-      id: "2",
+      id: '2',
       name: 'Viking',
       blades: 3,
       price: 7.99,
@@ -61,7 +61,7 @@ describe('Product Model Test', () => {
 
   it('create product with decimal quantyty should failed', async () => {
     const productWithDecimalQuantyty = new ProductModel({
-      id:"3",
+      id: '3',
       name: 'Big',
       price: 10.99,
       quantyty: 10.5,

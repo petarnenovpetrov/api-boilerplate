@@ -2,9 +2,9 @@ const { Schema, model } = require('mongoose');
 module.exports = (ns => {
   ns.product = (() => {
     const ProductSchema = new Schema({
-      id:{
+      id: {
         type: String,
-        required:true
+        required: true,
       },
       name: {
         type: String,
