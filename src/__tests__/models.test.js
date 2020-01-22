@@ -33,8 +33,6 @@ describe('Product Model Test', () => {
     expect(savedProduct.name).toBe(ProductData.name);
   });
 
-  // // Test Schema is working!!!
-  // // You shouldn't be able to add in any field that isn't defined in the schema
   it('should insert product successfully, but the field does not defined in schema should be undefined', async () => {
     const validProduct = new ProductModel({
       name: 'Viking',
@@ -47,8 +45,6 @@ describe('Product Model Test', () => {
     expect(savedProduct.blades).toBeUndefined();
   });
 
-  // Test Validation is working!!!
-  // It should us told us the errors in on price field.
   it('create product without required field should failed', async () => {
     const productWithoutRequiredField = new ProductModel({ name: 'Big' });
     let err;
@@ -60,5 +56,23 @@ describe('Product Model Test', () => {
     }
     expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
     expect(err.errors.price).toBeDefined();
+  });
+  
+  it('create product with decimal quantyty should failed', async () => {
+    const productWithDecimalQuantyty = new ProductModel({
+      name: 'Big',
+      price: 10.99,
+      quantyty: 10.5,
+    });
+    let err;
+    try {
+      const savedProductWithoutRequiredField = await productWithDecimalQuantyty.save();
+      error = savedProductWithoutRequiredField;
+    } catch (error) {
+      err = error;
+    }
+
+    expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
+    expect(err.errors.quantyty).toBeDefined();
   });
 });

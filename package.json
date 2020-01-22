@@ -2,6 +2,9 @@
   "name": "api-boilerplate",
   "version": "1.0.5",
   "main": "src/index.js",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "express-pino-logger": "^4.0.0",

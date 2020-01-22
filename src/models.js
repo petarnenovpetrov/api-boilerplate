@@ -4,12 +4,21 @@ module.exports = (ns => {
     const ProductSchema = new Schema({
       name: {
         type: String,
-        required: true,
+        required: [true, 'Product name required'],
         unique: true,
       },
       price: {
         type: Number,
-        required: true,
+        required: [true, 'Product price required!'],
+      },
+      quantyty: {
+        type: Number,
+        validate: {
+          validator: function(v) {
+            return ((v^0) === v)
+          },
+          message: props => `${props.value} is not a valid quantyty!`,
+        },
       },
     });
     return model('Product', ProductSchema);

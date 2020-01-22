@@ -4,8 +4,8 @@ module.exports = (ns => {
   const Product = models.product;
   ns.setProduct = function(req, res) {
     return new Promise((resolve, reject) => {
-      const { name, price } = req.body;
-      const product = new Product({ name, price });
+      const { name, price, quantyty } = req.body;
+      const product = new Product({ name, price, quantyty });
       product.save((err, product) => {
         if (err) {
           reject(err);
