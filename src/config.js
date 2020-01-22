@@ -15,10 +15,10 @@ module.exports = (ns => {
   };
   ns.mongoose = {
     url:
-      process.env.NODE === 'test'
+      process.env.NODE_ENV === 'test'
         ? global.__MONGO_URI__
         : 'mongodb://localhost:27017/api',
-    async init() {
+    async init() {      
       await mongoose.connect(ns.mongoose.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -27,7 +27,7 @@ module.exports = (ns => {
       const db = mongoose.connection;
       db.once('open', () => {
         console.info('Connection to mongodb opened');
-        console.info(global.__MONGO_URI__);
+        console.info(ns.mongoose.url);
       });
       db.on('error', err => {
         console.error(err.message || JSON.stringify(err));

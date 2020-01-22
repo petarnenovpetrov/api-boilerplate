@@ -1,7 +1,7 @@
 //unit tests models.js
 const mongoose = require('mongoose');
 const ProductModel = require('../models').product;
-const ProductData = { name: 'Gilette' };
+const ProductData = { name: 'Gilette', price: 10.99 };
 
 describe('Product Model Test', () => {
   // It's just so easy to connect to the MongoDB Memory Server
@@ -16,6 +16,7 @@ describe('Product Model Test', () => {
           console.error(err);
           process.exit(1);
         }
+        await ProductModel.deleteMany({});
       },
     );
   });
@@ -24,38 +25,40 @@ describe('Product Model Test', () => {
     await mongoose.connection.close();
   });
 
-  it('create & save user successfully', async () => {
+  it('should create & save product successfully', async () => {
     const validProduct = new ProductModel(ProductData);
     const savedProduct = await validProduct.save();
-    // Object Id should be defined when successfully saved to MongoDB.
+
     expect(savedProduct._id).toBeDefined();
     expect(savedProduct.name).toBe(ProductData.name);
-    // expect(savedProduct.gender).toBe(ProductData.gender);
-    // expect(savedProduct.dob).toBe(ProductData.dob);
-    // expect(savedProduct.loginUsing).toBe(ProductData.loginUsing);
   });
 
   // // Test Schema is working!!!
   // // You shouldn't be able to add in any field that isn't defined in the schema
-  // it('insert user successfully, but the field does not defined in schema should be undefined', async () => {
-  //     const userWithInvalidField = new ProductModel({ name: 'TekLoon', gender: 'Male', nickname: 'Handsome TekLoon' });
-  //     const savedUserWithInvalidField = await userWithInvalidField.save();
-  //     expect(savedUserWithInvalidField._id).toBeDefined();
-  //     expect(savedUserWithInvalidField.nickkname).toBeUndefined();
-  // });
+  it('should insert product successfully, but the field does not defined in schema should be undefined', async () => {
+    const validProduct = new ProductModel({
+      name: 'Viking',
+      blades: 3,
+      price: 7.99,
+    });
+    const savedProduct = await validProduct.save();
+    expect(savedProduct._id).toBeDefined();
+    expect(savedProduct.name).toBe('Viking');
+    expect(savedProduct.blades).toBeUndefined();
+  });
 
-  // // Test Validation is working!!!
-  // // It should us told us the errors in on gender field.
-  // it('create user without required field should failed', async () => {
-  //     const userWithoutRequiredField = new ProductModel({ name: 'TekLoon' });
-  //     let err;
-  //     try {
-  //         const savedUserWithoutRequiredField = await userWithoutRequiredField.save();
-  //         error = savedUserWithoutRequiredField;
-  //     } catch (error) {
-  //         err = error
-  //     }
-  //     expect(err).toBeInstanceOf(mongoose.Error.ValidationError)
-  //     expect(err.errors.gender).toBeDefined();
-  // });
+  // Test Validation is working!!!
+  // It should us told us the errors in on price field.
+  it('create product without required field should failed', async () => {
+    const productWithoutRequiredField = new ProductModel({ name: 'Big' });
+    let err;
+    try {
+      const savedProductWithoutRequiredField = await productWithoutRequiredField.save();
+      error = savedProductWithoutRequiredField;
+    } catch (error) {
+      err = error;
+    }
+    expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
+    expect(err.errors.price).toBeDefined();
+  });
 });

@@ -3,7 +3,8 @@ module.exports = (ns => {
     if (req.header('X-UID') === '1234') return next();
     next(new Error('Wrong X-UID'));
   };
-  ns.errorHandler = async function(err) {
+  ns.errorHandler = async function (err) {
+    //do something with error
     await console.error(err.message || JSON.stringify(err));
   };
   return ns;
