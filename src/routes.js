@@ -23,6 +23,27 @@ module.exports = (ns => {
         .then(data => res.json(data))
         .catch(err => next(err));
     });
+
+    app.get('/api/product/:id', async (req, res, next) => {
+      await service
+        .getProductById(req, res)
+        .then(data => res.json(data))
+        .catch(err => next(err));
+    });
+
+    app.put('/api/product/:id', async (req, res, next) => {
+      await service
+        .updateProductById(req, res)
+        .then(data => res.json(data))
+        .catch(err => next(err));
+    });
+
+    app.delete('/api/product/:id', async (req, res, next) => {
+      await service
+        .deleteProductById(req, res)
+        .then(data => res.json(data))
+        .catch(err => next(err));
+    });
   };
   return ns;
 })({});

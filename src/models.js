@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 module.exports = (ns => {
   ns.product = (() => {
     const ProductSchema = new Schema({
+      id:{
+        type: String,
+        required:true
+      },
       name: {
         type: String,
         required: [true, 'Product name required'],
