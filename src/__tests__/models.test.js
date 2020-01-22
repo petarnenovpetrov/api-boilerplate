@@ -57,7 +57,7 @@ describe('Product Model Test', () => {
     expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
     expect(err.errors.price).toBeDefined();
   });
-  
+
   it('create product with decimal quantyty should failed', async () => {
     const productWithDecimalQuantyty = new ProductModel({
       name: 'Big',

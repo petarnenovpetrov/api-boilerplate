@@ -15,7 +15,7 @@ module.exports = (ns => {
         type: Number,
         validate: {
           validator: function(v) {
-            return ((v^0) === v)
+            return (v ^ 0) === v;
           },
           message: props => `${props.value} is not a valid quantyty!`,
         },
