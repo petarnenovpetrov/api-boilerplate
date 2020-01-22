@@ -9,8 +9,8 @@ module.exports = (ns => {
       },
       price: {
         type: Number,
-        required: true
-      }
+        required: true,
+      },
     });
     return model('Product', ProductSchema);
   })();

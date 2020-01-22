@@ -18,7 +18,7 @@ module.exports = (ns => {
       process.env.NODE_ENV === 'test'
         ? global.__MONGO_URI__
         : 'mongodb://localhost:27017/api',
-    async init() {      
+    async init() {
       await mongoose.connect(ns.mongoose.url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
