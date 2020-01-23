@@ -16,8 +16,15 @@ Docker mode
 in project main folder
 
     ```bash
+    npm install 
     sh cli.sh run
     ```
+Run bot/simulating user activities/:
+
+    ```bash
+    npm run devBot
+    ```
+Look at the file: bot.log
 
 Nodejs mode  
 
@@ -27,6 +34,7 @@ Nodejs mode
 start redis  
 start mongodb  
 npm start
+npm run devBot
 
 Open in browser [Main page](http://localhost:3000/api)
 

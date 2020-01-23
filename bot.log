@@ -1,0 +1,58 @@
+┌─────────┬─────────────────────┐
+│ (index) │       Values        │
+├─────────┼─────────────────────┤
+│    0    │    'setProduct'     │
+│    1    │  'getProductById'   │
+│    2    │ 'deleteProductById' │
+│    3    │ 'updateProductById' │
+│    4    │    'getProducts'    │
+│    5    │      'getApi'       │
+└─────────┴─────────────────────┘
+[1579793439346] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 0
+[1579793441301] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/e4d47eda-e239-42ca-9f18-1f385c6185c5, data:undefined, IDS length: 64
+[1579793441361] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 64
+[1579793441380] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/d50cfc8e-1aba-409a-b561-6160e01136f3, data:undefined, IDS length: 64
+[1579793441860] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"0fd8386e-84f9-4348-ae65-cfcafe0c1503","name":"Small Concrete Ball","price":885.15,"quantyty":78637}, IDS length: 65
+[1579793442215] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:PUT, url:/api/product/2c9ed4c7-2462-4e24-90c3-160a3d044656, data:{"price":583.68,"quantyty":56237}, IDS length: 65
+[1579793442276] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api, data:undefined, IDS length: 65
+[1579793443234] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/d406a069-f6a1-4676-9a92-c07597fda452, data:undefined, IDS length: 65
+[1579793443358] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 65
+[1579793443394] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/2c9ed4c7-2462-4e24-90c3-160a3d044656, data:undefined, IDS length: 65
+[1579793444349] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"c3778da6-7342-4f67-a81d-49de8e0d29c9","name":"Incredible Wooden Salad","price":767.24,"quantyty":63633}, IDS length: 66
+[1579793445065] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:PUT, url:/api/product/9cfd0eb3-6ea3-4763-a82e-3c08ef600cf9, data:{"price":179.45,"quantyty":5663}, IDS length: 66
+[1579793445168] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/f99d98e2-7595-4840-9342-578649ce3f66, data:undefined, IDS length: 66
+[1579793445186] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api, data:undefined, IDS length: 66
+[1579793445354] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 66
+[1579793445408] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/2ed2786d-f6de-4f81-b736-3b58a30c3534, data:undefined, IDS length: 66
+[1579793446841] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"91db0b4b-e0f6-4059-b31d-7b2559b42036","name":"Fantastic Metal Fish","price":314.25,"quantyty":56935}, IDS length: 67
+[1579793447102] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/32974273-3011-40a8-96a6-c0ea9d1dad58, data:undefined, IDS length: 67
+[1579793447350] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 67
+[1579793447422] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/9cfd0eb3-6ea3-4763-a82e-3c08ef600cf9, data:undefined, IDS length: 67
+[1579793447915] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:PUT, url:/api/product/1621c4f5-166f-443a-8d7f-bc903be42fe4, data:{"price":878.53,"quantyty":23340}, IDS length: 67
+[1579793448096] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api, data:undefined, IDS length: 67
+[1579793449036] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/949ccdfe-21a6-4b64-be7e-9a32d5b369f2, data:undefined, IDS length: 67
+[1579793449333] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"183ed25e-8158-40db-a5eb-a7b8bf93012b","name":"Rustic Steel Bike","price":866.23,"quantyty":29102}, IDS length: 68
+[1579793449345] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 68
+[1579793449436] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/1eb50c23-f192-4d03-b935-8ab89136b5c9, data:undefined, IDS length: 68
+[1579793450765] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:PUT, url:/api/product/673f01d9-c298-411a-abf1-f6e03094bab0, data:{"price":84.82,"quantyty":55279}, IDS length: 68
+[1579793450969] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/90c8ce01-5595-4ef9-bc36-dc2e34c8b096, data:undefined, IDS length: 68
+[1579793451006] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api, data:undefined, IDS length: 68
+[1579793451342] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 68
+[1579793451450] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/1621c4f5-166f-443a-8d7f-bc903be42fe4, data:undefined, IDS length: 68
+[1579793451823] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"0b123ab4-07bb-4c38-b893-23d6f3f6a5d1","name":"Licensed Rubber Hat","price":990.65,"quantyty":81845}, IDS length: 69
+[1579793452903] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/6a414e04-a3d3-40e1-9543-631fb962d9ec, data:undefined, IDS length: 69
+[1579793453338] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 69
+[1579793453464] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/040ebc66-4c15-4ec9-8db7-8e2d67b5545f, data:undefined, IDS length: 69
+[1579793453614] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:PUT, url:/api/product/6b673340-5539-4753-8cfc-9a65acdd7418, data:{"price":528.28,"quantyty":16925}, IDS length: 69
+[1579793453916] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api, data:undefined, IDS length: 69
+[1579793454314] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"50b903ed-65fa-41cf-8db5-8e8e774dec9e","name":"Handcrafted Fresh Bacon","price":529.84,"quantyty":30019}, IDS length: 70
+[1579793454837] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/2c9ed4c7-2462-4e24-90c3-160a3d044656, data:undefined, IDS length: 70
+[1579793455335] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 70
+[1579793455478] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/1eb50c23-f192-4d03-b935-8ab89136b5c9, data:undefined, IDS length: 70
+[1579793456464] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:PUT, url:/api/product/54a3597b-8b6a-46ae-a364-818591aaceaf, data:{"price":997.37,"quantyty":27763}, IDS length: 70
+[1579793456770] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/90c8ce01-5595-4ef9-bc36-dc2e34c8b096, data:undefined, IDS length: 70
+[1579793456805] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:POST, url:/api/product, data:{"id":"6d46adc3-bfc3-40c2-b724-92144a85a92a","name":"Tasty Plastic Computer","price":855.16,"quantyty":39047}, IDS length: 71
+[1579793456827] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api, data:undefined, IDS length: 71
+[1579793457331] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product, data:undefined, IDS length: 71
+[1579793457493] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:DELETE, url:/api/product/53d31cb2-0ab8-4f49-a142-808c78f17fec, data:undefined, IDS length: 71
+[1579793458704] INFO  (21842 on petar-ThinkPad-X1-Carbon-2nd): method:GET, url:/api/product/642fcacb-ebb4-4785-9f4f-3abb4941e4e9, data:undefined, IDS length: 71
