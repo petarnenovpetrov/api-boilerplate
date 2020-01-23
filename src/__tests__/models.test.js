@@ -29,8 +29,11 @@ describe('Product Model Test', () => {
     const validProduct = new ProductModel(ProductData);
     const savedProduct = await validProduct.save();
 
-    expect(savedProduct.id).toBeDefined();
+    expect(savedProduct._id).toBeDefined();
+    expect(savedProduct.id).toBe(ProductData.id);
     expect(savedProduct.name).toBe(ProductData.name);
+    expect(savedProduct.price).toBe(ProductData.price);
+    expect(savedProduct.quantyty).toBe(ProductData.quantyty);
   });
 
   it('should insert product successfully, but the field does not defined in schema should be undefined', async () => {
@@ -41,7 +44,8 @@ describe('Product Model Test', () => {
       price: 7.99,
     });
     const savedProduct = await validProduct.save();
-    expect(savedProduct.id).toBeDefined();
+    expect(savedProduct._id).toBeDefined();
+    expect(savedProduct.id).toBe('2');
     expect(savedProduct.name).toBe('Viking');
     expect(savedProduct.blades).toBeUndefined();
   });
@@ -56,6 +60,7 @@ describe('Product Model Test', () => {
       err = error;
     }
     expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
+    expect(err.errors.id).toBeDefined();
     expect(err.errors.price).toBeDefined();
   });
 
@@ -69,7 +74,6 @@ describe('Product Model Test', () => {
     let err;
     try {
       const savedProductWithoutRequiredField = await productWithDecimalQuantyty.save();
-      error = savedProductWithoutRequiredField;
     } catch (error) {
       err = error;
     }

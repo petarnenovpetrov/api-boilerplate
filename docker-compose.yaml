@@ -1,0 +1,17 @@
+version: "3"
+services:
+  myapp:
+    container_name: api-boilerplate
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+      - redis
+  mongo:
+    container_name: mongo
+    image: "mongo:latest"
+  redis:
+    container_name: redis
+    image: "redis:latest"

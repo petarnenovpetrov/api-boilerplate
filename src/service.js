@@ -40,7 +40,6 @@ module.exports = (ns => {
     return new Promise((resolve, reject) => {
       const { id } = req.params;
       const { ...props } = req.body;
-      console.log(props);
       Product.findOneAndUpdate(
         { id: id },
         { ...props },

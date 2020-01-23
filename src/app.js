@@ -8,13 +8,13 @@ const app = express();
 
 app.use(express.json());
 
-//config.pino.init(app);
-(async () => {
-  await config.mongoose.init();
-})();
+config.pino.init(app);
 
-//INFO: check all requests
-app.use(middleware.checkUID);
+config.mongoose.init();
+
+//INFO: add some security check
+//checkUID validate header "X-UID:1234"
+//app.use(middleware.checkUID);
 
 routes.init(app);
 
