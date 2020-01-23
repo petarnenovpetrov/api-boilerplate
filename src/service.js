@@ -40,9 +40,9 @@ module.exports = (ns => {
   Object.defineProperty(ns.getProductById, 'method', {
     value: 'GET',
   });
-    Object.defineProperty(ns.getProductById, 'url', {
-      value: '/api/product',
-    });
+  Object.defineProperty(ns.getProductById, 'url', {
+    value: '/api/product',
+  });
 
   ns.deleteProductById = function(req, res) {
     return new Promise((resolve, reject) => {
