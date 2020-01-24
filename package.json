@@ -29,7 +29,7 @@
     "test": "cross-env NODE_ENV=test jest --coverage --config ./jest.config.js",
     "start": "node src/index.js ",
     "devStart": "nodemon src/index.js",
-    "devBot": "node src/util/bot >> bot.log",
+    "devBot": "node src/util/bot | tee -a bot.log",
     "format": "prettier --write \"src/**/*.js\"",
     "preversion": "npm run test",
     "version": "npm run format && git add -A src",

@@ -29,7 +29,7 @@ async function startBot(index) {
     };
     try {
       const res = await axios(options);
-      console.log(`Action: ${index} "OK"`);
+      console.log(`Action: ${index} ${ACTIONS[index]} -> OK`);
       logger.info(
         `method:${method}, url:${url}, data:${JSON.stringify(
           data,
@@ -37,7 +37,9 @@ async function startBot(index) {
       );
       return res.data;
     } catch (err) {
-      console.log(`Action: ${index} "Failed, check it immediately!!!"`);
+      console.log(
+        `Action: ${index} ${ACTIONS[index]} -> Failed, check it immediately!!!`,
+      );
       logger.fatal('Service down', err);
       process.exit(-1);
     }

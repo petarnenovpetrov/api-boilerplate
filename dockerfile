@@ -15,6 +15,6 @@ ADD . /usr/src/app
 # Install pm2
 RUN npm install pm2 -g
 # Start
-CMD [ "pm2-runtime", "npm", "--", "start" ]
+CMD [ "pm2-runtime", "start","processes.json" ]
 
 EXPOSE 3000

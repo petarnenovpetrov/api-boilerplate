@@ -1,3 +1,5 @@
 node_modules
-
-
+bot.log
+cli.sh
+coverage
+.vscode

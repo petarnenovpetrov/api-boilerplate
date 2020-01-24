@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "api-boilerplate",
+      "script": "./src/index.js",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "kill_timeout": 5000
+    }
+  ]
+}
