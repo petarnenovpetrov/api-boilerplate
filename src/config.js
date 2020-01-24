@@ -23,6 +23,7 @@ module.exports = (ns => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
+        useFindAndModify: false,
       });
       const db = mongoose.connection;
       db.once('open', () => {
