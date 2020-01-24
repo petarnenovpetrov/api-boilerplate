@@ -67,7 +67,12 @@ async function startBot(index) {
       price: body.includes('price')
         ? Number(faker.finance.amount())
         : undefined,
-      quantyty: body.includes('quantyty') ? faker.random.number() : undefined,
+      quantyty: body.includes('quantyty')
+        ? faker.random.number({
+            min: 1,
+            max: 999,
+          })
+        : undefined,
     };
   }
 
