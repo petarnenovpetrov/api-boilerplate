@@ -12,6 +12,9 @@ COPY package-lock.json .
 RUN npm install
 # Copy all other source code to work directory
 ADD . /usr/src/app
+# Install pm2
+RUN npm install pm2 -g
 # Start
-CMD [ "npm", "start" ]
+CMD [ "pm2-runtime", "npm", "--", "start" ]
+
 EXPOSE 3000

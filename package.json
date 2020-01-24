@@ -14,6 +14,7 @@
     "mongoose": "^5.8.7",
     "pino": "^5.16.0",
     "pino-pretty": "^3.5.0",
+    "pm2": "^4.2.3",
     "prettier": "^1.19.1"
   },
   "devDependencies": {
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --coverage --config ./jest.config.js",
-    "start": "node src/index.js",
+    "start": "node src/index.js ",
     "devStart": "nodemon src/index.js",
     "devBot": "node src/util/bot >> bot.log",
     "format": "prettier --write \"src/**/*.js\"",

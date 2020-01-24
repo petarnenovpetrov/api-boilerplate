@@ -15,18 +15,12 @@ console.table(ACTIONS);
 const index = 4;
 
 async function startBot(index) {
-  const params = service[ACTIONS[index]].params;
-  const body = service[ACTIONS[index]].body;
-  const method = service[ACTIONS[index]].method;
-  const url = service[ACTIONS[index]].url;
+  const params = service[ACTIONS[index]].meta.params;
+  const body = service[ACTIONS[index]].meta.body;
+  const method = service[ACTIONS[index]].meta.method;
+  const url = service[ACTIONS[index]].meta.url;
 
   async function action(data, method, url) {
-    logger.info(
-      `method:${method}, url:${url}, data:${JSON.stringify(
-        data,
-      )}, IDS length: ${IDS.length}`,
-    );
-
     const options = {
       baseURL: 'http://localhost:3000',
       url,
@@ -35,8 +29,15 @@ async function startBot(index) {
     };
     try {
       const res = await axios(options);
+      console.log(`Action: ${index} "OK"`);
+      logger.info(
+        `method:${method}, url:${url}, data:${JSON.stringify(
+          data,
+        )}, Response: ${JSON.stringify(res.data)}`,
+      );
       return res.data;
     } catch (err) {
+      console.log(`Action: ${index} "Failed, check it immediately!!!"`);
       logger.fatal('Service down', err);
       process.exit(-1);
     }
