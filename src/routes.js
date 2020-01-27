@@ -4,7 +4,7 @@ module.exports = (ns => {
     //welckome message
     app.get('/api', async (req, res, next) => {
       await service
-        .getApi(req, res)
+        .getApi()
         .then(data => res.json(data))
         .catch(err => next(err));
     });
@@ -12,35 +12,35 @@ module.exports = (ns => {
     //Product resource
     app.get('/api/product', async (req, res, next) => {
       await service
-        .getProducts(req, res)
+        .getProducts()
         .then(data => res.json(data))
         .catch(err => next(err));
     });
 
     app.post('/api/product', async (req, res, next) => {
       await service
-        .setProduct(req, res)
+        .setProduct(req.body)
         .then(data => res.json(data))
         .catch(err => next(err));
     });
 
     app.get('/api/product/:id', async (req, res, next) => {
       await service
-        .getProductById(req, res)
+        .getProductById(req.params)
         .then(data => res.json(data))
         .catch(err => next(err));
     });
 
     app.put('/api/product/:id', async (req, res, next) => {
       await service
-        .updateProductById(req, res)
+        .updateProductById(req.body, req.params)
         .then(data => res.json(data))
         .catch(err => next(err));
     });
 
     app.delete('/api/product/:id', async (req, res, next) => {
       await service
-        .deleteProductById(req, res)
+        .deleteProductById(req.params)
         .then(data => res.json(data))
         .catch(err => next(err));
     });

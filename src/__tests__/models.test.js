@@ -1,7 +1,10 @@
 //unit tests models.js
 const mongoose = require('mongoose');
 const ProductModel = require('../models').product;
-const ProductData = { id: '1', name: 'Gilette', price: 10.99, quantyty: 12 };
+const data = require('./data.json');
+const ProductDataGillette = data.Gillette;
+const ProductDataViking = data.Viking;
+const ProductDataBig = data.Big;
 
 describe('Product Model Test', () => {
   // It's just so easy to connect to the MongoDB Memory Server
@@ -26,32 +29,29 @@ describe('Product Model Test', () => {
   });
 
   it('should create & save product successfully', async () => {
-    const validProduct = new ProductModel(ProductData);
+    const validProduct = new ProductModel(ProductDataGillette);
     const savedProduct = await validProduct.save();
 
     expect(savedProduct._id).toBeDefined();
-    expect(savedProduct.id).toBe(ProductData.id);
-    expect(savedProduct.name).toBe(ProductData.name);
-    expect(savedProduct.price).toBe(ProductData.price);
-    expect(savedProduct.quantyty).toBe(ProductData.quantyty);
+    expect(savedProduct.id).toBe(ProductDataGillette.id);
+    expect(savedProduct.name).toBe(ProductDataGillette.name);
+    expect(savedProduct.price).toBe(ProductDataGillette.price);
+    expect(savedProduct.quantyty).toBe(ProductDataGillette.quantyty);
   });
 
   it('should insert product successfully, but the field does not defined in schema should be undefined', async () => {
-    const validProduct = new ProductModel({
-      id: '2',
-      name: 'Viking',
-      blades: 3,
-      price: 7.99,
-    });
+    const validProduct = new ProductModel(ProductDataViking);
     const savedProduct = await validProduct.save();
     expect(savedProduct._id).toBeDefined();
-    expect(savedProduct.id).toBe('2');
-    expect(savedProduct.name).toBe('Viking');
+    expect(savedProduct.id).toBe(ProductDataViking.id);
+    expect(savedProduct.name).toBe(ProductDataViking.name);
     expect(savedProduct.blades).toBeUndefined();
   });
 
   it('create product without required field should failed', async () => {
-    const productWithoutRequiredField = new ProductModel({ name: 'Big' });
+    const productWithoutRequiredField = new ProductModel({
+      name: ProductDataBig.name,
+    });
     let err;
     try {
       const savedProductWithoutRequiredField = await productWithoutRequiredField.save();
@@ -65,12 +65,7 @@ describe('Product Model Test', () => {
   });
 
   it('create product with decimal quantyty should failed', async () => {
-    const productWithDecimalQuantyty = new ProductModel({
-      id: '3',
-      name: 'Big',
-      price: 10.99,
-      quantyty: 10.5,
-    });
+    const productWithDecimalQuantyty = new ProductModel(ProductDataBig);
     let err;
     try {
       const savedProductWithoutRequiredField = await productWithDecimalQuantyty.save();

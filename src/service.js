@@ -2,9 +2,8 @@ const models = require('./models');
 
 module.exports = (ns => {
   const Product = models.product;
-  ns.setProduct = function(req, res) {
+  ns.setProduct = function({ id, name, price, quantyty }) {
     return new Promise((resolve, reject) => {
-      const { id, name, price, quantyty } = req.body;
       const product = new Product({ id, name, price, quantyty });
       product.save((err, product) => {
         if (err) {
@@ -22,10 +21,9 @@ module.exports = (ns => {
     },
   });
 
-  ns.getProductById = function(req, res) {
+  ns.getProductById = function({ id }) {
     return new Promise((resolve, reject) => {
-      const { id } = req.params;
-      Product.findOne({ id: id }, (err, product) => {
+      Product.findOne({ id }, (err, product) => {
         if (err) {
           reject(err);
         }
@@ -41,9 +39,8 @@ module.exports = (ns => {
     },
   });
 
-  ns.deleteProductById = function(req, res) {
+  ns.deleteProductById = function({ id }) {
     return new Promise((resolve, reject) => {
-      const { id } = req.params;
       Product.findOneAndDelete({ id: id }, (err, product) => {
         if (err) {
           reject(err);
@@ -60,10 +57,8 @@ module.exports = (ns => {
       url: '/api/product',
     },
   });
-  ns.updateProductById = function(req, res) {
+  ns.updateProductById = function({ ...props }, { id }) {
     return new Promise((resolve, reject) => {
-      const { id } = req.params;
-      const { ...props } = req.body;
       Product.findOneAndUpdate(
         { id: id },
         { ...props },
@@ -85,7 +80,7 @@ module.exports = (ns => {
       url: '/api/product',
     },
   });
-  ns.getProducts = function(req, res) {
+  ns.getProducts = function() {
     return new Promise((resolve, reject) => {
       Product.find({}, (err, products) => {
         if (err) {
@@ -101,7 +96,7 @@ module.exports = (ns => {
       url: '/api/product',
     },
   });
-  ns.getApi = function(req, res) {
+  ns.getApi = function() {
     return new Promise((resolve, reject) => {
       resolve('Hello API');
     });

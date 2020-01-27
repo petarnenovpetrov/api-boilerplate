@@ -3,18 +3,8 @@ const app = require('../app');
 const request = require('supertest');
 const mongoose = require('mongoose');
 const ProductModel = require('../models').product;
+const data = require('./data.json');
 
-const mockProduct = {
-  id: '1',
-  name: 'Gillette',
-  price: 10.99,
-  quantyty: 20,
-};
-
-const mockProductWithOutPrice = {
-  id: '1',
-  name: 'Gillette',
-};
 //E2E tests routes.js
 
 beforeAll(async () => {
@@ -39,8 +29,8 @@ describe('Product Endpoints', () => {
   it('should create a new product', async () => {
     const res = await request(app)
       .post('/api/product')
-      .set('X-UID', '1234')
-      .send(mockProduct);
+      .set(data.customHeader.name, data.customHeader.value)
+      .send(data.mockProduct);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
     expect(res.body).toHaveProperty('name');
@@ -49,88 +39,88 @@ describe('Product Endpoints', () => {
   it('should not create a new product with same name', async () => {
     const res = await request(app)
       .post('/api/product')
-      .set('X-UID', '1234')
-      .send(mockProduct);
+      .set(data.customHeader.name, data.customHeader.value)
+      .send(data.mockProduct);
     expect(res.statusCode).toEqual(500);
   });
   it('should not create a new product without price', async () => {
     const res = await request(app)
       .post('/api/product')
-      .set('X-UID', '1234')
-      .send(mockProductWithOutPrice);
+      .set(data.customHeader.name, data.customHeader.value)
+      .send(data.mockProductWithOutPrice);
     expect(res.statusCode).toEqual(500);
   });
   it('should get all products', async () => {
     const res = await request(app)
       .get('/api/product')
-      .set('X-UID', '1234');
+      .set(data.customHeader.name, data.customHeader.value);
     const products = res.body;
     expect(res.statusCode).toEqual(200);
     expect(products.length).toBe(1);
-    expect(products[0].name).toBe(mockProduct.name);
-    expect(products[0].price).toBe(mockProduct.price);
-    expect(products[0].quantyty).toBe(mockProduct.quantyty);
+    expect(products[0].name).toBe(data.mockProduct.name);
+    expect(products[0].price).toBe(data.mockProduct.price);
+    expect(products[0].quantyty).toBe(data.mockProduct.quantyty);
   });
   it('should get product by Id', async () => {
     const res = await request(app)
-      .get('/api/product/1')
-      .set('X-UID', '1234');
+      .get(`/api/product/${data.mockProduct.id}`)
+      .set(data.customHeader.name, data.customHeader.value);
     const product = res.body;
     expect(res.statusCode).toEqual(200);
-    expect(product.id).toBe(mockProduct.id);
-    expect(product.name).toBe(mockProduct.name);
-    expect(product.price).toBe(mockProduct.price);
-    expect(product.quantyty).toBe(mockProduct.quantyty);
+    expect(product.id).toBe(data.mockProduct.id);
+    expect(product.name).toBe(data.mockProduct.name);
+    expect(product.price).toBe(data.mockProduct.price);
+    expect(product.quantyty).toBe(data.mockProduct.quantyty);
   });
   it('should not get product by wrong Id', async () => {
     const res = await request(app)
-      .get('/api/product/2')
-      .set('X-UID', '1234');
+      .get(`/api/product/data.mockProductWithWrongId.id`)
+      .set(data.customHeader.name, data.customHeader.value);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toBeNull();
   });
   it('should update price and quantyty to product by Id', async () => {
     const res = await request(app)
-      .put('/api/product/1')
-      .set('X-UID', '1234')
-      .send({ price: 33.99, quantyty: 44 });
+      .put(`/api/product/${data.mockProduct.id}`)
+      .set(data.customHeader.name, data.customHeader.value)
+      .send(data.mockUpdateProduct);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('price');
-    expect(res.body.price).toBe(33.99);
+    expect(res.body.price).toBe(data.mockUpdateProduct.price);
     expect(res.body).toHaveProperty('quantyty');
-    expect(res.body.quantyty).toBe(44);
+    expect(res.body.quantyty).toBe(data.mockUpdateProduct.quantyty);
   });
   it('should update price to product by Id', async () => {
     const res = await request(app)
-      .put('/api/product/1')
-      .set('X-UID', '1234')
-      .send({ price: 44.99 });
+      .put(`/api/product/${data.mockProduct.id}`)
+      .set(data.customHeader.name, data.customHeader.value)
+      .send({ price: data.mockUpdateProduct.price });
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('price');
-    expect(res.body.price).toBe(44.99);
+    expect(res.body.price).toBe(data.mockUpdateProduct.price);
   });
   it('should update quantyty to product by Id', async () => {
     const res = await request(app)
-      .put('/api/product/1')
-      .set('X-UID', '1234')
-      .send({ quantyty: 20 });
+      .put(`/api/product/${data.mockProduct.id}`)
+      .set(data.customHeader.name, data.customHeader.value)
+      .send({ quantyty: data.mockUpdateProduct.quantyty });
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('quantyty');
-    expect(res.body.quantyty).toBe(20);
+    expect(res.body.quantyty).toBe(data.mockUpdateProduct.quantyty);
   });
   it('should not update quantyty to product by Id', async () => {
     const res = await request(app)
-      .put('/api/product/1')
-      .set('X-UID', '1234')
-      .send({ quantyty: 20.59 });
+      .put(`/api/product/${data.mockProduct.id}`)
+      .set(data.customHeader.name, data.customHeader.value)
+      .send({ quantyty: data.mockProductWithWrongProps.quantyty });
     expect(res.statusCode).toEqual(500);
   });
   it('should delete product by Id', async () => {
     const res = await request(app)
-      .delete('/api/product/1')
-      .set('X-UID', '1234');
+      .delete(`/api/product/${data.mockProduct.id}`)
+      .set(data.customHeader.name, data.customHeader.value);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
-    expect(res.body.id).toBe('1');
+    expect(res.body.id).toBe(data.mockProduct.id);
   });
 });

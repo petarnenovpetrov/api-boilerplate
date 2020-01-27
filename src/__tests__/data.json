@@ -1,0 +1,37 @@
+{
+  "mockProduct": {
+    "id": "1",
+    "name": "Gillette",
+    "price": 10.99,
+    "quantyty": 20
+  },
+  "mockProductWithOutPrice": {
+    "id": "1",
+    "name": "Gillette"
+  },
+  "mockUpdateProduct": {
+    "price": 33.99,
+    "quantyty": 44
+  },
+  "mockProductWithWrongProps": {
+    "id": 2,
+    "quantyty": 41.99
+  },
+  "customHeader": {
+    "name": "X-UID",
+    "value": "1234"
+  },
+  "Gillette": { "id": "1", "name": "Gilette", "price": 10.99, "quantyty": 12 },
+  "Viking": {
+    "id": "2",
+    "name": "Viking",
+    "blades": 3,
+    "price": 7.99
+  },
+  "Big": {
+    "id": "3",
+    "name": "Big",
+    "price": 10.99,
+    "quantyty": 10.5
+  }
+}
