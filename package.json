@@ -15,7 +15,7 @@
     "mongoose": "^5.8.7",
     "pino": "^5.16.0",
     "pino-pretty": "^3.5.0",
-    "pm2": "^4.2.3",
+    "pm2": "^5.2.0",
     "prettier": "^1.19.1"
   },
   "devDependencies": {
